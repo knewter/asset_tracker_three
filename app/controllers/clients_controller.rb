@@ -1,13 +1,12 @@
 class ClientsController < ApplicationController
+  respond_to :html, :xml
+
   # GET /clients
   # GET /clients.xml
   def index
     @clients = Client.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @clients }
-    end
+    respond_with @clients
   end
 
   # GET /clients/1
@@ -15,10 +14,7 @@ class ClientsController < ApplicationController
   def show
     @client = Client.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @client }
-    end
+    respond_with @client
   end
 
   # GET /clients/new
@@ -26,15 +22,14 @@ class ClientsController < ApplicationController
   def new
     @client = Client.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @client }
-    end
+    respond_with @client
   end
 
   # GET /clients/1/edit
   def edit
     @client = Client.find(params[:id])
+
+    respond_with @client
   end
 
   # POST /clients
