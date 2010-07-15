@@ -1,17 +1,17 @@
-Feature: Manage posts
+Feature: Manage clients
   In order to [goal]
   [stakeholder]
   wants [behaviour]
   
-  Scenario: Register new post
-    Given I am on the new post page
-    When I fill in "Title" with "title 1"
-    And I fill in "Body" with "body 1"
-    And I uncheck "Published"
+  Scenario: Register new client
+    Given I am on the new client page
+    When I fill in "Name" with "name 1"
+    And I fill in "Bill rate" with "1.0"
+    And I fill in "Status" with "status 1"
     And I press "Create"
-    Then I should see "title 1"
-    And I should see "body 1"
-    And I should see "false"
+    Then I should see "name 1"
+    And I should see "1.0"
+    And I should see "status 1"
 
   # Rails generates Delete links that use Javascript to pop up a confirmation
   # dialog and then do a HTTP POST request (emulated DELETE request).
@@ -36,26 +36,16 @@ Feature: Manage posts
   # of the tags above is to modify your views to use <button> instead. You can
   # see how in http://github.com/jnicklas/capybara/issues#issue/12
   #
-  Scenario: Delete post
-    Given the following posts:
-      |title|body|published|
-      |title 1|body 1|false|
-      |title 2|body 2|true|
-      |title 3|body 3|false|
-      |title 4|body 4|true|
-    When I delete the 3rd post
-    Then I should see the following posts:
-      |Title|Body|Published|
-      |title 1|body 1|false|
-      |title 2|body 2|true|
-      |title 4|body 4|true|
-
-  Scenario: Delete post
-    Given the following posts:
-      |title|body|published|
-      |title 1|body 1|false|
-      |title 2|body 2|true|
-      |title 3|body 3|false|
-      |title 4|body 4|true|
-    When I delete the 3rd post
-    Then show me the page
+  Scenario: Delete client
+    Given the following clients:
+      |name|bill_rate|status|
+      |name 1|1.0|status 1|
+      |name 2|2.0|status 2|
+      |name 3|3.0|status 3|
+      |name 4|4.0|status 4|
+    When I delete the 3rd client
+    Then I should see the following clients:
+      |Name|Bill rate|Status|
+      |name 1|1.0|status 1|
+      |name 2|2.0|status 2|
+      |name 4|4.0|status 4|

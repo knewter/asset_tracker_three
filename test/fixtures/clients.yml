@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  bill_rate: 9.99
+  status: MyString
+
+two:
+  name: MyString
+  bill_rate: 9.99
+  status: MyString

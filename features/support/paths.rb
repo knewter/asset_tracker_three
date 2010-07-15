@@ -10,9 +10,8 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
-    when /the new post page/
-      new_post_path
-
+    when /the new client page/
+      new_client_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
